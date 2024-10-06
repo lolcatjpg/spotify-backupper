@@ -26,6 +26,7 @@ if __name__ == "__main__":
             playlist_id,
             fields="name"
         )["name"]
+        print(f"- backing up {playlist_name} (id: {playlist_id})...")
 
         playlist = sp.playlist_items(
             playlist_id,
@@ -38,3 +39,4 @@ if __name__ == "__main__":
             encoding="utf-8"
         ) as f:
             f.write(json.dumps(playlist))
+            print(f"  > {playlist_name} backed up as {f.name}")
