@@ -21,7 +21,7 @@ if __name__ == "__main__":
     if not os.path.exists("backup"):
         os.mkdir("backup")
 
-    for playlist_id in playlist_ids:
+    for playlist_id in playlist_ids.values():
         playlist_name = sp.playlist(
             playlist_id,
             fields="name"
