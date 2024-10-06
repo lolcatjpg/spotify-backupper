@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import json
 import os
 from datetime import datetime
@@ -16,6 +17,9 @@ if __name__ == "__main__":
 
     client_credentials_manager = SpotifyClientCredentials(client_id=CID, client_secret=SECRET)
     sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
+
+    if not os.path.exists("backup"):
+        os.mkdir("backup")
 
     for playlist_id in playlist_ids:
         playlist_name = sp.playlist(
